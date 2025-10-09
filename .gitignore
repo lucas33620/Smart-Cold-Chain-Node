@@ -1,0 +1,12 @@
+.project
+.settings/
+.vscode/
+.idea/
+MDK-ARM/*Objects*/
+MDK-ARM/*Listing*/
+Debug/
+Release/
+*.elf
+*.hex
+*.map
+*.log

@@ -1,7 +1,7 @@
 But : modules utilitaires/middleware réutilisables (drivers custom, libs maison).
-Tous les fichiers .h se trouve dans Inc
+Tous les fichiers .h se trouve dans Inc et .c dans SRC
 
-Contenu typique :
+Contenu :
 
 logger.c / logger.h → ring buffer + commit FRAM.
 
