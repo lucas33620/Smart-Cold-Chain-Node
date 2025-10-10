@@ -80,16 +80,56 @@
 
 ---
 
-# 5) Architecture logicielle
-/app
-/core (application, state machine, config, alarms)
-/rtos (wrappers FreeRTOS: tasks, queues, timers, events)
-/drivers (hal_adc, hal_i2c, hal_spi, hal_can, hal_gpio, fram, sensor_th)
-/platform
-/hw (STM32 HAL, BSP Nucleo)
-/sim (stubs, data feeders, pseudo-can, virtual fram)
-/middleware (cli uart, can_proto, logger, ringbuf, crc)
-/tests (unit tests - Ceedling)
+# 5) Architecture 
+## 5.1 Logicielle
+
+- /app
+- /core (application, state machine, config, alarms)
+- /rtos (wrappers FreeRTOS: tasks, queues, timers, events)
+- /drivers (hal_adc, hal_i2c, hal_spi, hal_can, hal_gpio, fram, sensor_th)
+- /platform
+- /hw (STM32 HAL, BSP Nucleo)
+- /sim (stubs, data feeders, pseudo-can, virtual fram)
+- /middleware (cli uart, can_proto, logger, ringbuf, crc)
+- /tests (unit tests - Ceedling)
+
+## 5.2 Configuration STM32
+
+- **GPIO**
+  - PG13 : LED
+  - PA0  : Porte (input)
+  - PD2  : Ventilation (output - relay)
+
+- **PWM**
+  - PD12 → TIM4_CH1 (Buzzer)
+
+- **USART3**
+  - PD8 / PD9
+
+- **I²C1**
+  - PB6 / PB7
+
+- **SPI1**
+  - PA5 / PA6 / PA7 + PB5 (CS)
+
+- **CAN1**
+  - PD0 / PD1
+
+- **ADC1**
+  - PA1 (Vin)
+  - Channel 16 (Température MCU)
+
+- **Horloge**
+  - HSE = 8 MHz → PLL = 168 MHz
+  - **SYSCLK = 168 MHz**
+  - **HCLK = 168 MHz**
+  - **PCLK1 = 42 MHz**
+  - **PCLK2 = 84 MHz**
+  - **Timers**
+    - APB1 Timers = 84 MHz
+    - APB2 Timers = 168 MHz
+
+- **FreeRTOS activé**
 
 # 6) Tests & validation
 
