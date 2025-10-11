@@ -13,17 +13,7 @@
 #include "task_proc.h"
 #include "task_can.h"
 #include "task_cli.h"
-
-typedef struct {
-    float    t_c;       // température air
-    float    rh_pct;    // humidité %
-    float    t_mcu_c;   // temp MCU
-    float    vin_v;     // tension entrée
-    uint8_t  door;      // 0/1
-    uint32_t flags;     // bits divers (ex: out-of-range, capteur HS...)
-} telem_t;
-
-typedef uint32_t event_t;  // bitmask d'événements système
+#include "telem.h"
 
 /* ---------- Objets FreeRTOS (scope fichier) ---------- */
 static QueueHandle_t      s_qTelem  = NULL;  /* task_acq -> task_proc */
