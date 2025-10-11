@@ -64,6 +64,7 @@ EWARM/*/Exe/
 !.settings/
 # Fichier CubeMX du projet
 !*.ioc
+!*.launch
 
 ### STM32 / GCC / Linker scripts
 # On garde les scripts d’édition de liens et les sources
