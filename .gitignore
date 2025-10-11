@@ -1,12 +1,81 @@
-.project
-.settings/
+### OS (Windows / macOS)
+# Fichiers système inutiles
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+### Éditeurs / IDE locaux (perso)
+# VS Code / JetBrains (garde le projet Eclipse/STM32CubeIDE)
 .vscode/
 .idea/
-MDK-ARM/*Objects*/
-MDK-ARM/*Listing*/
+
+### Artefacts de compilation génériques
+# Dossiers de build courants
+[Bb]uild/
 Debug/
 Release/
+out/
+bin/
+obj/
+Obj/
+# Fichiers objets / dépendances
+*.o
+*.obj
+*.d
+*.dep
+# Bibliothèques & outputs
+*.a
+*.lib
+*.out
+*.axf
 *.elf
 *.hex
+*.bin
 *.map
+*.lst
+*.srec
+*.s19
+# Logs / caches
 *.log
+*.tmp
+*.cache
+
+### Keil MDK-ARM
+# Conserver les fichiers projet (.uvprojx) mais ignorer les sorties
+MDK-ARM/*Objects*/
+MDK-ARM/*Listing*/
+# Fichier d’options utilisateur Keil (souvent spécifique à la machine)
+MDK-ARM/*.uvoptx
+# (on GARDERA *.uvprojx par défaut)
+
+### IAR (si jamais)
+EWARM/*/Obj/
+EWARM/*/List/
+EWARM/*/Exe/
+
+### STM32CubeIDE (Eclipse)
+# On veut versionner les métadonnées du projet pour faciliter l’import
+# Si tu avais des règles qui les ignoraient avant, on les « désignore » explicitement :
+!.project
+!.cproject
+!.mxproject
+!.settings/
+# Fichier CubeMX du projet
+!*.ioc
+
+### STM32 / GCC / Linker scripts
+# On garde les scripts d’édition de liens et les sources
+!*.ld
+!Core/**
+!Drivers/**
+!Middlewares/**
+!App/**
+!AppLogic/**
+
+### Sauvegardes/temporaires d’éditeurs
+*.bak
+*.swp
+*.swo
+*.orig

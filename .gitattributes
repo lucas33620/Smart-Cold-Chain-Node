@@ -1,4 +1,13 @@
-*.c text eol=lf
-*.h text eol=lf
-*.md text eol=lf
-*.txt text eol=lf
+# Normaliser en LF par défaut
+*           text=auto eol=lf
+
+# Scripts Windows éventuellement en CRLF (si tu en as)
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Scripts/Code en LF
+*.c         text eol=lf
+*.h         text eol=lf
+*.ld        text eol=lf
+*.sh        text eol=lf
+*.py        text eol=lf
