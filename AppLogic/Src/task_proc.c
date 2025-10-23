@@ -14,7 +14,7 @@
 #include "core_init.h"
 #include "main.h"
 
-/* ---------- Objets ---------- */
+/*  Objets  */
 static TaskHandle_t        s_task      = NULL;
 static QueueHandle_t       s_q_telem   = NULL;  /* in  (telem_t) */
 static QueueHandle_t       s_q_events  = NULL;  /* out (event_t)  */
@@ -28,7 +28,7 @@ static uint32_t            s_outside_since_ms = 0;
 /* Notification bits */
 #define PROC_NOTIFY_REEVAL   (1UL)
 
-/* --- Helpers internes --- */
+/* Helpers internes  */
 static inline uint8_t temp_out_of_range(float t)
 {
     return (t > TEMP_HIGH_C) || (t < TEMP_LOW_C);
@@ -86,7 +86,7 @@ static void emit_event(uint32_t mask)
         (void)xQueueSend(s_q_events, &mask, 0);
 }
 
-/* ---------- Tâche principale ---------- */
+/* Tâche principale */
 static void task_proc_entry(void* arg)
 {
     (void)arg;
@@ -159,7 +159,7 @@ static void task_proc_entry(void* arg)
     }
 }
 
-/* ---------- API ---------- */
+/* API  */
 void TaskProc_Start(QueueHandle_t q_telem,
                     QueueHandle_t q_events,
                     EventGroupHandle_t evt_sys)
