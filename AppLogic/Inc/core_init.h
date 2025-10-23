@@ -24,7 +24,7 @@ extern "C" {
 #define EVT_SYS_ALARM_ACTIVE     (1U << 0)
 #define EVT_SYS_SENSOR_FAULT     (1U << 1)
 #define EVT_SYS_DOOR_OPEN        (1U << 2)
-#define EVT_SYS_COMMIT_REQ      (1U << 3)
+#define EVT_SYS_COMMIT_REQ      (1U << 3)		// Commit sur un stockage non volatile
 
 
 /* API de lifecycle */
