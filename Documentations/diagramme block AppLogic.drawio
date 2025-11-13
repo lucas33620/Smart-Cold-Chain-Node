@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0" version="28.2.7">
+  <diagram name="Page-1" id="1XW1zt5_X4CrFJu9i16j">
+    <mxGraphModel dx="1231" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-13" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;core_init&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Rôle : crée/possède les objets RTOS et lance les tâches.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;RTOS : qTelem , qEvents, evtSys, tCommit&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;API : Core_Init(), Core_Start(), getters (Core_Get*).&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="750" y="300" width="180" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-15" value="qTelem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-16" value="qEvent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1272.5" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-25" value="evtSys :&lt;br&gt;ALARM&amp;nbsp; |&amp;nbsp; SENSOR_FAULT&amp;nbsp; |&amp;nbsp; DOOR_OPEN&amp;nbsp; | COMMIT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="390" width="345" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-26" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;task_acq&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Rôle : Acquerir&amp;nbsp;capteurs (T/H I²C, T_mcu, Vin, porte)&lt;/li&gt;&lt;li&gt;IN : driver sensor_th, adc_utils&lt;/li&gt;&lt;li&gt;OUT : qtelem&lt;/li&gt;&lt;li&gt;Periode : 1Hz + réveil immédiat si demande&lt;/li&gt;&lt;li&gt;API :&amp;nbsp;TaskAcq_Start(qTelem), TaskAcq_RequestImmediateSample()&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="400" y="610" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-29" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;task_proc&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Rôle :&amp;nbsp;traitement/hystérésis/alarme (dwell), mise à jour flags, actions.&lt;/li&gt;&lt;li&gt;IN : qTelem&lt;/li&gt;&lt;li&gt;OUT : qEvent, push Logger_Push()&lt;/li&gt;&lt;li&gt;Action : Relay_SetState(), MAJ evtSys, Logger_Flush() si commit&lt;/li&gt;&lt;li&gt;Etats : RUN / DEGRADED / SAFE&lt;/li&gt;&lt;li&gt;API :&amp;nbsp;TaskProc_Start(qTelem, qEvents, evtSys), TaskProc_ForceReeval(), TaskProc_GetLast()&lt;/li&gt;&lt;/ul&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="990" y="595" width="260" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="xVeRdJq6uV-X5lp0rZYh-30" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;task_can&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Rôle : télémétrie périodique, RX commandes/diag&lt;/li&gt;&lt;li&gt;IN : qEvent, evtSys, accès TaskProc_GetLast()&lt;/li&gt;&lt;li&gt;OUT : trames via &lt;code data-end=&quot;1405&quot; data-start=&quot;1394&quot;&gt;can_proto&lt;/code&gt; (TX/RX)&lt;/li&gt;&lt;li&gt;Action : peut écrire&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="700" y="860" width="250" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

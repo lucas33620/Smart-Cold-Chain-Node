@@ -4,7 +4,7 @@
  *          Version simple basée sur FreeRTOS Message Buffer.
  */
 #include "logger.h"
-#include "fram_spi.h"    // pour Fram_WriteSample(...) à adapter
+#include "fram_spi.h"
 #include <string.h>
 
 static MessageBufferHandle_t s_msgbuffer = NULL;
