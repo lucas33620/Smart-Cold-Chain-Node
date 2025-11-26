@@ -10,6 +10,7 @@ Tous les fichiers d’en-tête (`.h`) se trouvent dans **App/Inc** et les source
 
 | Fichier | Rôle |
 |----------|------|
+| **adc_utils.c / adc_utils.h** | Lecture **tension Vin** (ADC PA1) + lecture **température MCU** (ADC interne), conversions physiques. |
 | **logger.c / logger.h** | Gestion d’un ring buffer RAM et commit périodique vers la FRAM SPI (journalisation télémétrie). |
 | **fram_spi.c / fram_spi.h** | Driver de la mémoire **FRAM SPI** (MB85RS256B) : lecture/écriture robuste et endurante. |
 | **sensor_th.c / sensor_th.h** | Driver capteur de **température / humidité** (SHT31 ou HDC1080) via bus I²C. |
@@ -18,3 +19,5 @@ Tous les fichiers d’en-tête (`.h`) se trouvent dans **App/Inc** et les source
 | **crc_utils.c / crc_utils.h** | Fonctions CRC8/CRC16 et utilitaires de validation des données. |
 | **relay.c / relay.h** | Pilotage du **relais de ventilation** (ON/OFF avec hystérésis). |
 | **mock_*.[ch]** *(optionnel)* | Simulations pour Keil µVision (drivers fictifs : capteur, CAN, FRAM, etc.). |
+
+---
